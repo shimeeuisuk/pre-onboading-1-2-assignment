@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 // eslint-disable-next-line object-curly-newline
 import {
   Container,
@@ -12,24 +13,27 @@ import {
 
 // eslint-disable-next-line object-curly-newline
 const IssueItem = forwardRef(({ el }, ref) => {
+  const navigate = useNavigate();
   return (
-    <Link to={`/detail/${el.number}`} state={{ issue: el }} ref={ref}>
-      <Container>
-        <ItemLeft>
-          <Title>
-            <Content>{`#${el.number}`}</Content>
-            <Content>{el.title}</Content>
-          </Title>
-          <SubTitle>
-            <Content>{`작성자 ${el.user.login},`}</Content>
-            <Content>{`작성일 ${el.created_at}`}</Content>
-          </SubTitle>
-        </ItemLeft>
-        <ItemRight>
-          <div>{el.comments}</div>
-        </ItemRight>
-      </Container>
-    </Link>
+    <Container
+      onClick={() => {
+        navigate(`/detail/${el.number}`);
+      }}
+    >
+      <ItemLeft>
+        <Title>
+          <Content>{`#${el.number}`}</Content>
+          <Content>{el.title}</Content>
+        </Title>
+        <SubTitle>
+          <Content>{`작성자 ${el.user.login},`}</Content>
+          <Content>{`작성일 ${el.created_at}`}</Content>
+        </SubTitle>
+      </ItemLeft>
+      <ItemRight>
+        <div>{`코멘트 : ${el.comments}`}</div>
+      </ItemRight>
+    </Container>
   );
 });
 

@@ -1,6 +1,6 @@
 // eslint-disable-next-line object-curly-newline
 import React, { createContext, useState, useEffect, useMemo } from 'react';
-import GetList from '../utils/apis/ListApi';
+import { GetList } from '../utils/apis/ListApi';
 
 export const ListContext = createContext();
 
