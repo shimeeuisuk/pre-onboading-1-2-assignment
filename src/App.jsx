@@ -1,8 +1,13 @@
 import React from 'react';
-import { Router } from 'react-router';
+import { ListProvider } from './context/ListContext';
+import Router from './Router';
 
 const App = () => {
-  return <Router />;
+  return (
+    <ListProvider>
+      <Router />
+    </ListProvider>
+  );
 };
 
 export default App;
