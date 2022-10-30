@@ -1,7 +1,8 @@
 import React from 'react';
+import Container from './Style';
 
 const Header = () => {
-  return <div>Header</div>;
+  return <Container>Angular/Angular-cli</Container>;
 };
 
 export default Header;
