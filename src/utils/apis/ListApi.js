@@ -13,4 +13,16 @@ const GetList = async ({ page, size }) => {
   }
 };
 
-export default GetList;
+const GetIssue = async ({ id }) => {
+  try {
+    const result = await axios.get(
+      `https://api.github.com/repos/angular/angular-cli/issues/${id}`,
+      { headers: { Authorization: `Bearer ${process.env.REACT_APP_TOKEN}` } }
+    );
+    return result.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { GetIssue, GetList };

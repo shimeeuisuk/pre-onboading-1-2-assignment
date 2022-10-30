@@ -1,11 +1,14 @@
 import React from 'react';
 import { ListProvider } from './context/ListContext';
 import Router from './Router';
+import Layout from './components/Layout/Layout';
 
 const App = () => {
   return (
     <ListProvider>
-      <Router />
+      <Layout>
+        <Router />
+      </Layout>
     </ListProvider>
   );
 };

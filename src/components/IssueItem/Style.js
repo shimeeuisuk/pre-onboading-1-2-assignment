@@ -1,18 +1,14 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 50%;
-  border: 1px solid red;
+  padding: 8px;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
 `;
 
-const ItemLeft = styled.div`
-  border: 1px solid blue;
-`;
-const ItemRight = styled.div`
-  border: 1px solid green;
-`;
+const ItemLeft = styled.div``;
+const ItemRight = styled.div``;
 
 const Title = styled.div`
   display: flex;
