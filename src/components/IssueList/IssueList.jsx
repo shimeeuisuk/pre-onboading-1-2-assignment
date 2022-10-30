@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import { ListContext } from '../../context/ListContext';
 import IssueItem from '../IssueItem/IssueItem';
+import Container from './Style';
 
 const IssueList = () => {
   const elementRef = useRef(null);
@@ -23,27 +24,29 @@ const IssueList = () => {
   }, [issueList]);
 
   return (
-    <ul>
-      {issueList.map((el, idx) => {
-        return (
-          <>
-            <IssueItem
-              el={el}
-              key={el.id}
-              ref={idx === issueList.length - 5 ? elementRef : undefined}
-            />
-            {idx === 4 ? (
-              <a href="https://www.wanted.co.kr/ ">
-                <img
-                  src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
-                  alt="img"
-                />
-              </a>
-            ) : undefined}
-          </>
-        );
-      })}
-    </ul>
+    <Container>
+      <ul>
+        {issueList.map((el, idx) => {
+          return (
+            <>
+              <IssueItem
+                el={el}
+                key={el.id}
+                ref={idx === issueList.length - 5 ? elementRef : undefined}
+              />
+              {idx === 4 ? (
+                <a href="https://www.wanted.co.kr/ ">
+                  <img
+                    src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
+                    alt="img"
+                  />
+                </a>
+              ) : undefined}
+            </>
+          );
+        })}
+      </ul>
+    </Container>
   );
 };
 
